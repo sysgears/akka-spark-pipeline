@@ -2,12 +2,25 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>[%level] [%date{MM/dd/yyyy HH:mm:ss.SSS}] [%thread] [%class] %msg%n</pattern>
+            <pattern>[%level] [%date{MM/dd/yyyy HH:mm:ss.SSS}] [%thread] [%class] %n %msg%n%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="logfile" class="ch.qos.logback.core.FileAppender">
+        <file>askp.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>[%level] [%date{MM/dd/yyyy HH:mm:ss.SSS}] [%thread] [%class] %n %msg%n%n</pattern>
         </encoder>
     </appender>
 
     <root level="info">
         <appender-ref ref="console"/>
+    </root>
+
+    <root level="info">
+        <appender-ref ref="logfile"/>
     </root>
 
 </configuration>
